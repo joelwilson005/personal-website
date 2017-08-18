@@ -1,0 +1,22 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "Joel Wilson",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.11.5"
+  },
+  "engines": {
+    "node": "8.2.x"
+  }
+}

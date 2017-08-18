@@ -1,0 +1,22 @@
+@import  'main.scss';
+
+.container{
+    font-family: $mainFont;
+    padding: 30px;
+    width: 50%;
+}
+
+#about{
+    h1{
+        color: $color4;
+        font-weight: bold;
+        margin-bottom: 30px;
+    
+    }
+
+    p{
+        color: $color3;
+        font-size: 20px;
+        line-height: 2rem;
+    }
+}

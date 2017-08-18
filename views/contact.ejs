@@ -1,0 +1,123 @@
+<% include ./partials/header %>
+     <link rel="stylesheet" type="text/css" href="css/contact.css">
+     
+    <section id="particles-js">
+        <div class="text-container center-align">
+            <h1>Don't be scared to say hello.</h1>
+            <p>LET'S HAVE A CHAT</p>
+        </div>
+    </section>
+
+    <div class="flex-container">
+        <div id="contact-info">
+            joelwilson.info
+            <address>
+                Kingston, Jamaica
+            </address>
+            <br>
+            (876)889-9015
+            <br>
+            email@joelwilson.info
+        </div>
+        <form id="message-form">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="firstname" id="firstname" placeholder="First Name *" required>
+                <input type="text" name="lastname" id= "lastname" placeholder="Last Name *" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea required name="message" id="message"></textarea>
+            </div>
+            <input class="button" id="submit-button" type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="message-modal" class="modal">
+        <div class="container">
+            <div class="modal-content">
+                <span class="close" id="close">&times;</span>
+                <p>Message sent successfully.</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/particle.js"></script>
+    <script type="text/javascript" src="js/jquery-validate.js"></script>
+    <script type="text/javascript">
+        particlesJS.load('particles-js',
+        'particles.json');
+
+       
+
+        $('#submit-button').click(function(e) {
+             $('#message-form').validate({
+            email:{
+                required: true,
+                email: true,
+            },
+            firstname:{
+                required: true,
+                nowhitespace: true,
+                lettersonly: true
+            },
+
+            lastname: {
+                required: true,
+                nowhitespace: true,
+                lettersonly: true
+            },
+
+            message: {
+                required: true
+            },
+
+            submitHandler : function(form){
+                var $form = $('#message-form');
+
+                    // get the form data
+                    var formData = {
+                        'firstname' : $('#firstname').val(),
+                        'lastname' : $('#lastname').val(),
+                        'email': $('#email').val(),
+                        'message': $('#message').val()
+
+                    };
+
+                    $.ajax({
+                        type : 'POST',
+                        url : '/contact',
+                        data: formData,
+                        dataType : 'json',
+                        encode : true,
+                        ajaxSuccess : function(data){
+                            alert('message sent');
+                        }
+                    });
+
+                   // script for popup modal
+                    var modal = document.getElementById("message-modal");
+
+                    $("#submit-button").val("Submitting...");
+
+                    // show modal
+                    modal.style.display = "block";
+
+                    // when user clicks on the x hide the modal
+                    $("#close").click(function(){
+                        // clear the contents of the form elements
+                        $("input[type=text]").val("");
+                        $("input[type=email]").val("");
+                        $("textarea").val("");
+                        $("#submit-button").val("Submit");
+
+                        // hide the modal
+                        modal.style.display = "none";
+                    });
+            }
+        });
+        })
+    </script>
+<% include ./partials/footer %>

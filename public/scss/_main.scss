@@ -1,0 +1,221 @@
+// _main.scss
+
+// Font Awesome
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+// Website fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto|Lobster');
+
+$mainFont : 'Roboto', sans-serif;
+$secondaryFont : 'Lobster', cursive;
+
+// Website theme colors
+$color1: 	#999999;
+$color2:   	#777777;
+$color3:    #555555;
+$color4:    #333333;
+$color5:    #111111;
+$color6:    #fff;
+
+// Reset margins and paddings
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    overflow: scroll;
+    padding-bottom: 6rem;
+}
+
+noscript{
+    font-family: $mainFont;
+    margin: 20px 20px;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.wrapper{
+    min-height: 100%;
+}
+
+// container
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+.center-align{
+    text-align: center;
+}
+
+
+header{
+    width: 100%;
+    height: auto;
+}
+
+nav{
+    background: $color4;
+    overflow: hidden;
+    width: 100%;
+}
+
+.logo-section{
+    float: left;
+    padding: 18px;
+}
+
+.logo-section .logo{
+    font-family: $secondaryFont;
+    font-size: 28px;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    color: $color6;
+}
+
+.hb-button{
+    float: right;
+    background: $color4;
+    color: $color1;
+    border: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none;
+}
+
+nav a{
+    text-decoration: none;
+    color: $color1;
+    font-size: 20px;
+    padding: 5px;
+    
+}
+
+nav ul{
+    overflow: hidden;
+    color: $color1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: max-height 0.5s;
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    -ms-transition: max-height 0.5s;
+    -o-transition: max-height 0.5s;
+}
+
+nav ul li{
+    float: right;
+    display: inline-block;
+    padding: 20px;
+    font-family: $mainFont;
+}
+
+li > a{
+    position: relative;
+    color: $color1;
+    text-decoration: none;
+    
+}
+
+li > a:hover{
+    color: $color1;
+}
+
+li > a:before{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $color1;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+li > a:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+
+
+@media screen and (max-width: 870px){
+    .logo-section{
+        float: none;
+    }
+    nav ul{
+        background: $color4;
+        max-height: 0;
+        width: 100%;
+    }
+    nav ul.show{
+        max-height: 20em;
+    }
+    nav ul li{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 15px;
+    }
+    .hb-button{
+        display: inline;
+    }
+}
+
+footer{
+    background: $color4;
+    color: white;
+    padding: 10px;
+    font-family: $mainFont;
+}
+
+
+footer ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 400px){
+    footer ul{
+        flex-direction: column;
+    }
+}
+
+footer ul li{
+    margin: 5px;
+    list-style-type: none;
+}
+footer ul a{
+    font-family: $mainFont;
+    color: white;
+}
+
+footer ul a:hover{
+    color: $color6;
+}
+
+footer p{
+    text-align: center;
+}
+.fa{
+    font-size:25px;
+    margin: 10px;
+}

@@ -1,0 +1,43 @@
+// homepage.scss
+
+
+@import 'main.scss';
+section{
+    //position: relative;
+    background-color: $color5;
+    height: 600px;
+    width: 100%;
+    position: relative;
+}
+
+
+.text-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+section#particles-js h1{
+    color: $color6;
+    font-weight: 0.5;
+    font-family: $secondaryFont;
+    text-align: center;
+}
+
+section#particles-js p{
+    font-family: $mainFont;
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
+    color: $color6;
+}
+
+@media screen and (max-width: 500px){
+    section#particles-js p{
+        font-size: 30px;
+    }
+}
+
