@@ -2,6 +2,7 @@ let express = require('express');
 let path = require('path');
 let fs = require('fs');
 let bodyParser = require('body-parser');
+let compression = require('compression');
 // Morgan logger
 let morgan = require('morgan')
 let routes = require('./routes');
@@ -14,6 +15,8 @@ let logger = morgan("combined");
 
 let app = express();
 
+// compression middleware
+app.use(compression());
 
 // Set port 
 app.set("port", process.env.PORT || 3000);
